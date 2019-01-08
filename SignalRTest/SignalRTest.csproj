@@ -1,0 +1,109 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\node_modules\%40aspnet\**" />
+    <Content Remove="wwwroot\node_modules\%40aspnet\**" />
+    <EmbeddedResource Remove="wwwroot\node_modules\%40aspnet\**" />
+    <None Remove="wwwroot\node_modules\%40aspnet\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\node_modules\.bin\acorn" />
+    <None Include="wwwroot\node_modules\.bin\acorn.cmd" />
+    <None Include="wwwroot\node_modules\.bin\ansi-html" />
+    <None Include="wwwroot\node_modules\.bin\ansi-html.cmd" />
+    <None Include="wwwroot\node_modules\.bin\atob" />
+    <None Include="wwwroot\node_modules\.bin\atob.cmd" />
+    <None Include="wwwroot\node_modules\.bin\autoprefixer-info" />
+    <None Include="wwwroot\node_modules\.bin\autoprefixer-info.cmd" />
+    <None Include="wwwroot\node_modules\.bin\babylon" />
+    <None Include="wwwroot\node_modules\.bin\babylon.cmd" />
+    <None Include="wwwroot\node_modules\.bin\browserslist" />
+    <None Include="wwwroot\node_modules\.bin\browserslist.cmd" />
+    <None Include="wwwroot\node_modules\.bin\cssesc" />
+    <None Include="wwwroot\node_modules\.bin\cssesc.cmd" />
+    <None Include="wwwroot\node_modules\.bin\csso" />
+    <None Include="wwwroot\node_modules\.bin\csso.cmd" />
+    <None Include="wwwroot\node_modules\.bin\errno" />
+    <None Include="wwwroot\node_modules\.bin\errno.cmd" />
+    <None Include="wwwroot\node_modules\.bin\eslint" />
+    <None Include="wwwroot\node_modules\.bin\eslint.cmd" />
+    <None Include="wwwroot\node_modules\.bin\esparse" />
+    <None Include="wwwroot\node_modules\.bin\esparse.cmd" />
+    <None Include="wwwroot\node_modules\.bin\esvalidate" />
+    <None Include="wwwroot\node_modules\.bin\esvalidate.cmd" />
+    <None Include="wwwroot\node_modules\.bin\he" />
+    <None Include="wwwroot\node_modules\.bin\he.cmd" />
+    <None Include="wwwroot\node_modules\.bin\html-minifier" />
+    <None Include="wwwroot\node_modules\.bin\html-minifier.cmd" />
+    <None Include="wwwroot\node_modules\.bin\import-local-fixture" />
+    <None Include="wwwroot\node_modules\.bin\import-local-fixture.cmd" />
+    <None Include="wwwroot\node_modules\.bin\internal-ip" />
+    <None Include="wwwroot\node_modules\.bin\internal-ip.cmd" />
+    <None Include="wwwroot\node_modules\.bin\js-yaml" />
+    <None Include="wwwroot\node_modules\.bin\js-yaml.cmd" />
+    <None Include="wwwroot\node_modules\.bin\jsesc" />
+    <None Include="wwwroot\node_modules\.bin\jsesc.cmd" />
+    <None Include="wwwroot\node_modules\.bin\json5" />
+    <None Include="wwwroot\node_modules\.bin\json5.cmd" />
+    <None Include="wwwroot\node_modules\.bin\loose-envify" />
+    <None Include="wwwroot\node_modules\.bin\loose-envify.cmd" />
+    <None Include="wwwroot\node_modules\.bin\miller-rabin" />
+    <None Include="wwwroot\node_modules\.bin\miller-rabin.cmd" />
+    <None Include="wwwroot\node_modules\.bin\mime" />
+    <None Include="wwwroot\node_modules\.bin\mime.cmd" />
+    <None Include="wwwroot\node_modules\.bin\mkdirp" />
+    <None Include="wwwroot\node_modules\.bin\mkdirp.cmd" />
+    <None Include="wwwroot\node_modules\.bin\multicast-dns" />
+    <None Include="wwwroot\node_modules\.bin\multicast-dns.cmd" />
+    <None Include="wwwroot\node_modules\.bin\opener" />
+    <None Include="wwwroot\node_modules\.bin\opener.cmd" />
+    <None Include="wwwroot\node_modules\.bin\prettier" />
+    <None Include="wwwroot\node_modules\.bin\prettier.cmd" />
+    <None Include="wwwroot\node_modules\.bin\regjsparser" />
+    <None Include="wwwroot\node_modules\.bin\regjsparser.cmd" />
+    <None Include="wwwroot\node_modules\.bin\rimraf" />
+    <None Include="wwwroot\node_modules\.bin\rimraf.cmd" />
+    <None Include="wwwroot\node_modules\.bin\semver" />
+    <None Include="wwwroot\node_modules\.bin\semver.cmd" />
+    <None Include="wwwroot\node_modules\.bin\sha.js" />
+    <None Include="wwwroot\node_modules\.bin\sha.js.cmd" />
+    <None Include="wwwroot\node_modules\.bin\shjs" />
+    <None Include="wwwroot\node_modules\.bin\shjs.cmd" />
+    <None Include="wwwroot\node_modules\.bin\sshpk-conv" />
+    <None Include="wwwroot\node_modules\.bin\sshpk-conv.cmd" />
+    <None Include="wwwroot\node_modules\.bin\sshpk-sign" />
+    <None Include="wwwroot\node_modules\.bin\sshpk-sign.cmd" />
+    <None Include="wwwroot\node_modules\.bin\sshpk-verify" />
+    <None Include="wwwroot\node_modules\.bin\sshpk-verify.cmd" />
+    <None Include="wwwroot\node_modules\.bin\strip-indent" />
+    <None Include="wwwroot\node_modules\.bin\strip-indent.cmd" />
+    <None Include="wwwroot\node_modules\.bin\svgo" />
+    <None Include="wwwroot\node_modules\.bin\svgo.cmd" />
+    <None Include="wwwroot\node_modules\.bin\uglifyjs" />
+    <None Include="wwwroot\node_modules\.bin\uglifyjs.cmd" />
+    <None Include="wwwroot\node_modules\.bin\uuid" />
+    <None Include="wwwroot\node_modules\.bin\uuid.cmd" />
+    <None Include="wwwroot\node_modules\.bin\webpack" />
+    <None Include="wwwroot\node_modules\.bin\webpack-bundle-analyzer" />
+    <None Include="wwwroot\node_modules\.bin\webpack-bundle-analyzer.cmd" />
+    <None Include="wwwroot\node_modules\.bin\webpack-dev-server" />
+    <None Include="wwwroot\node_modules\.bin\webpack-dev-server.cmd" />
+    <None Include="wwwroot\node_modules\.bin\webpack.cmd" />
+    <None Include="wwwroot\node_modules\.bin\which" />
+    <None Include="wwwroot\node_modules\.bin\which.cmd" />
+    <None Include="wwwroot\node_modules\signalr.js" />
+    <None Include="wwwroot\node_modules\signalr.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Npm" Version="3.5.2" />
+  </ItemGroup>
+
+</Project>

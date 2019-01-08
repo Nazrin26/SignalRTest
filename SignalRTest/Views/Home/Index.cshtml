@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "SignalTest";
+}
+<style>
+    #signalApp{
+        margin-top: 20px;
+    }
+    .active{
+        background-color: cadetblue;
+    }
+</style>
+<div id="signalApp" :class=" {'active': isActive } ">
+    <div class="form-group">
+        <form>
+            <div>
+                <label for="input">Input</label>
+                <input type="text" name="Message" id="input" v-model="input">
+            </div>
+            <button v-on:click="submit" type="button">Submit</button>
+            <button v-on:click="changeColor()" type="button">ChangeColor</button>
+        </form>
+        <ul v-for="(item, index) in inputs" v-bind:key="index + 'itemInput'">
+            <li>
+                {{item.input}}
+                <button v-on:click="deleteInput(index)" type="button">Delete</button>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="~/node_modules/signalr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        var app = new Vue({
+            el: '#signalApp',
+            data: {
+                input: "",
+                connection: "",
+                inputs: [],
+                isActive: false
+            },
+            methods: {
+                submit: function () {
+                    if (this.input) {
+                        this.connection.invoke('Send', this.input).catch(function (err) {
+                            return console.error(err.toString());
+                        });
+                        
+                        this.input = '';
+                    }
+                },
+                deleteInput: function (index) {
+                    console.log(this.inputs);
+                    this.$delete(this.inputs, index);
+                    this.connection.invoke('SendDelete', this.inputs).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+                },
+                changeColor: function () {
+                    console.log(this.isActive);
+                    this.isActive = !this.isActive;
+
+                    this.connection.invoke('SendColor', this.isActive)                        
+                        .catch(function (err) {
+                            return console.error(err.toString());
+                    });
+                }
+            },
+            created: function () {
+                this.connection = new signalR.HubConnectionBuilder()
+                    .withUrl('/testHub')
+                    .configureLogging(signalR.LogLevel.Information)
+                    .build();
+                this.connection.start().catch(function (err) {
+                    return console.error(err.toString());
+                });
+            },
+            mounted: function () {
+                var thisVue = this;
+                thisVue.connection.start();
+                thisVue.connection.on('Receive', function (input) {
+                    thisVue.inputs.push({ input });
+                });
+                thisVue.connection.on('ReceiveColor', function (isActive) {
+                    console.log(isActive);
+                    console.log(thisVue.inputs);
+                    thisVue.isActive = isActive;
+                });
+                thisVue.connection.on('ReceiveDelete', function (inputs) {
+                    console.log('v');
+                    console.log(thisVue.inputs);
+                    thisVue.inputs = [];
+                    inputs.forEach(function (item) {
+                        console.log(item);
+                        thisVue.inputs.push(item);
+                    });
+                });
+                    //.then(result => console.log(result), this.isActive = result.isActive)
+                    //.catch(err => console.log(`${err} occured`));
+            }
+        });
+    });
+</script>
